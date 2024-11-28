@@ -1,0 +1,314 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos generales */
+html, body {
+    height: 100%;
+    font-family: Arial, sans-serif; /* Fuente base */
+}
+
+/* Body principal - evita solapamiento con el header fijo */
+body {
+    display: flex;
+    flex-direction: column;
+    padding-top: 80px; /* Espacio para compensar la altura del header fijo */
+}
+
+/* Logo y texto del logo */
+.logo {
+    display: flex;
+    align-items: center; /* Alinear verticalmente el logo y el texto */
+    gap: 15px; /* Espacio entre logo y texto */
+}
+
+.logo-img {
+    width: 50px; /* Tamaño ajustado para el logo */
+    height: auto; /* Mantener proporción */
+}
+
+.logo span {
+    font-size: 1.8rem; /* Tamaño grande para resaltar el texto de "Spotify" */
+    font-weight: bold; /* Texto en negrita para destacar */
+}
+
+/* Header (cabecera) */
+.header {
+    position: fixed; /* Fija la cabecera en la parte superior */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px; /* Altura fija */
+    background-color: #000; /* Fondo negro */
+    color: white;
+    display: flex;
+    justify-content: space-between; /* Espacio entre logo y navegación */
+    align-items: center;
+    padding: 0 40px;
+    z-index: 1000; /* Asegura que siempre esté por encima de otros elementos */
+}
+
+.menuAdaptado {
+    display: none; /* Oculto por defecto, visible en móviles */
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menuAdaptado div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 3px;
+    transition: all 0.3s ease; /* Animación suave */
+}
+
+/* Navegación del header */
+.menu {
+    display: flex;
+    align-items: center;
+}
+
+.menu ul {
+    list-style: none; /* Sin viñetas */
+    display: flex;
+    gap: 25px; /* Espacio entre elementos de la lista */
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem; /* Tamaño del texto de los enlaces */
+    transition: color 0.3s; /* Transición de color */
+}
+
+.menu ul li a:hover {
+    color: #1db954; /* Color verde en hover */
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 50vh; /* Ocupa toda la altura del viewport */
+    background-color: #529CF1; /* Fondo azul claro */
+    display: flex;
+    align-items: center; /* Centrado vertical del contenido */
+    justify-content: flex-start; /* Contenido alineado a la izquierda */
+    color: white;
+    text-align: left;   
+}
+
+/* Imagen de la chica en la sección hero */
+.hero-imagen {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 50%; /* Ocupa la mitad derecha */
+    height: 100%;
+    background: url('imagenes/hero-imagen.png') no-repeat bottom right;
+    background-size: contain; /* Mantiene la proporción */
+    z-index: 1; /* Está detrás del texto */
+}
+
+/* Contenedor del texto en la sección hero */
+.hero-cont {
+    z-index: 2; /* Asegura que el texto esté por encima de la imagen */
+    background-color: rgba(0, 0, 0, 0.0); /* Fondo transparente */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly; /* Distribuye el contenido de forma uniforme */
+    height: 100%; /* Ocupa toda la altura disponible */
+    padding: 20px 50px; /* Espaciado interno */
+}
+
+/* Título principal */
+.hero-texto h1 {
+    font-size: 3rem; /* Tamaño grande del título */
+    margin-bottom: 20px;
+    font-weight: 800; /* Negrita */
+    text-align: left;
+    line-height: 1.2; /* Ajuste de la altura de línea */
+}
+
+/* Subtítulo en la sección hero */
+.hero-texto p {
+    font-size: 1.5rem; /* Tamaño del subtítulo */
+    margin-bottom: 40px;
+    font-weight: bold;
+    text-align: left;
+}
+
+/* Botón en la sección hero */
+.hero-texto button {
+    padding: 15px 40px; /* Espaciado interno del botón */
+    border: none;
+    background-color: #1db954; /* Verde típico de Spotify */
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Transición de color al hacer hover */
+    border-radius: 25px; /* Bordes redondeados */
+    text-align: left;
+    font-weight: 600; /* Texto en negrita */
+    align-self: flex-start; /* Alinea el botón a la izquierda del contenedor */
+}
+
+.hero-texto button:hover {
+    background-color: #17a34a; /* Color en hover */
+    transform: scale(1.05); /* Efecto de agrandamiento en hover */
+}
+
+/* Texto de términos y condiciones en la sección hero */
+.hero-texto .textoterminos {
+    font-size: 0.85rem; 
+    margin-top: 20px; /* Espacio para separarlo del resto del contenido */
+    text-align: left;
+    opacity: 0.8; /* Reduce la prioridad visual */
+}
+
+/* Contenido principal */
+.main-cont {
+    padding: 40px 20px;
+    flex: 1;
+}
+
+/* Sección de beneficios premium */
+.premium {
+    text-align: center;
+    padding: 60px 20px; /* Margen de la sección */
+}
+
+.premium h2 {
+    font-size: 2.5rem; /* Tamaño del título */
+    font-weight: bold;
+    color: #333; /* Color oscuro */
+    margin-bottom: 40px; /* Espacio con las tarjetas */
+}
+
+.tarjetas {
+    display: flex;
+    justify-content: space-around; /* Espacio uniforme entre tarjetas */
+    flex-wrap: wrap; /* Las tarjetas se ajustan en filas */
+    gap: 40px; /* Espacio entre tarjetas */
+}
+
+.tarjeta {
+    padding: 20px;
+    border-radius: 10px; /* Bordes redondeados */
+    width: 200px; /* Ancho fijo */
+    text-align: center;
+}
+
+.tarjeta-icono {
+    width: 80px; /* Tamaño del ícono */
+    height: auto;
+    margin-bottom: 20px; /* Espacio con el título */
+}
+
+.tarjeta h3 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px; /* Espacio con el párrafo */
+}
+
+.tarjeta p {
+    font-size: 1rem;
+    color: #666; /* Texto en gris */
+}
+
+.pie {
+    background-color: #000; /* Fondo negro */
+    color: #fff;
+    padding: 20px 40px;
+    font-size: 0.875rem; /* Tamaño de letra reducido */
+}
+
+.pie-cont {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Envoltura para pantallas pequeñas */
+    align-items: flex-start;
+}
+
+.pie-links {
+    display: flex;
+    gap: 20px;
+    color: #aaa; /* Texto en gris */
+    order: 1;
+}
+
+.pie-links a {
+    text-decoration: none;
+    color: #aaa;
+    transition: color 0.3s; /* Transición de color */
+}
+
+.pie-links a:hover {
+    color: #1db954; /* Color verde en hover */
+}
+
+.pie-info {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio con la bandera */
+    margin-top: 10px;
+    order: 2;
+}
+
+.bandera {
+    width: 24px;
+    height: auto;
+}
+
+.pie-copyright {
+    margin-top: 10px;
+    font-size: 0.875rem; /* Tamaño pequeño */
+    order: 3;
+}
+
+/* Media Queries - Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+    .menu {
+        display: none;
+        position: absolute;
+        top: 80px;
+        right: 0;
+        background-color: #000;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu ul {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+
+    .menu ul li {
+        margin: 10px 0;
+    }
+
+    .menuAdaptado {
+        display: flex;
+    }
+    .hero {
+        flex-direction: column; /* Coloca el texto y la imagen en columnas */
+        height: auto; /* Ajusta la altura */
+    }
+    .hero-texto h1 {
+        font-size: 2rem; /* Reducción del tamaño en pantallas pequeñas */
+    }
+
+    .hero-texto p {
+        font-size: 1.2rem;
+    }
+
+    .tarjetas {
+        flex-direction: column; /* Las tarjetas se colocan en columna */
+    }
+}
